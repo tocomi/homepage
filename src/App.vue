@@ -1,7 +1,20 @@
 <template>
   <div class="main">
+    <header class="header">
+      <span>a</span>
+      <span>b</span>
+      <span>c</span>
+    </header>
+
     <div class="eyecatch">
-      <span class="eyecatch__text">Kenta TSUNEMI</span>
+      <div class="portrait">
+        <img
+          src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+        />
+      </div>
+      <div class="about-me">
+        <span class="eyecatch__text">Kenta TSUNEMI</span>
+      </div>
     </div>
 
     <div class="history">
@@ -13,14 +26,14 @@
       </template>
     </div>
 
-    <div class="portfolio">
+    <!-- <div class="portfolio">
       <template v-for="i in 3">
         <div class="portfolio-card" :key="i">
           <div class="portfolio-card__header">aaa</div>
           <div class="portfolio-card__content">bbb</div>
         </div>
       </template>
-    </div>
+    </div> -->
 
     <div class="footer">
       <span class="footer__text">Kenta TSUNEMI</span>
@@ -42,16 +55,27 @@ body {
   margin: 0;
 }
 
-$theme-color: #4db2c2;
+$theme-color: #4da3b5;
 $max-width: 480px;
 
 .main {
+  .header {
+    align-items: center;
+    background: $theme-color;
+    color: white;
+    display: flex;
+    height: 64px;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+  }
+
   .eyecatch {
     align-items: center;
-    background: linear-gradient($theme-color, #b4d1df);
+    background: linear-gradient($theme-color, #5fbdc5);
     display: flex;
     justify-content: center;
-    height: 480px;
+    height: 100vh;
     width: 100%;
 
     &__text {
@@ -60,19 +84,28 @@ $max-width: 480px;
     }
   }
 
+  .history {
+    margin-top: 128px;
+  }
+
   .history-content {
     align-items: center;
     display: flex;
     justify-content: space-around;
-    margin: 32px auto;
+    margin: 128px auto;
     max-width: $max-width;
 
     &__icon {
-      background: $theme-color;
+      border: 3px solid $theme-color;
       border-radius: 50%;
       height: 80px;
       width: 80px;
     }
+  }
+
+  .portfolio {
+    margin-top: 128px;
+    padding: 0 16px;
   }
 
   .portfolio-card {
@@ -99,7 +132,7 @@ $max-width: 480px;
 
   .footer {
     align-items: center;
-    background: linear-gradient($theme-color, #b4d1df);
+    background: linear-gradient($theme-color, #5fbdc5);
     display: flex;
     justify-content: center;
     height: 360px;
