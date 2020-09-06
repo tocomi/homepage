@@ -1,12 +1,11 @@
 <template>
   <div class="main">
     <header class="header">
-      <span>a</span>
-      <span>b</span>
-      <span>c</span>
+      <a class="header__link" href="#eyecatch">TOP</a>
+      <a class="header__link" href="#history">HISTORY</a>
     </header>
 
-    <div class="eyecatch">
+    <div id="eyecatch" class="eyecatch">
       <div class="portrait">
         <img class="portrait__photo" src="./assets/portrait.png" />
       </div>
@@ -23,7 +22,7 @@
       </div>
     </div>
 
-    <div class="history">
+    <div id="history" class="history">
       <template v-for="history in histories">
         <div class="history-content" :key="history.key">
           <div class="history-content__icon">
@@ -152,7 +151,7 @@ $theme-color: #4da3b5;
 $text-color-normal: #666;
 $text-color-weak: #bbb;
 $max-width: 480px;
-$break-point: $max-width;
+$break-point: 520px;
 
 .main {
   .header {
@@ -165,19 +164,34 @@ $break-point: $max-width;
     position: fixed;
     width: 100%;
     z-index: 10000;
+
+    &__link {
+      color: white;
+      margin: 0 8px;
+      text-decoration: none;
+    }
   }
 
   .eyecatch {
     align-items: center;
     background: linear-gradient($theme-color, #5fbdc5);
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
     width: 100%;
   }
 
+  .portrait {
+    &__photo {
+      opacity: 0.8;
+      width: 200px;
+    }
+  }
+
   .about-me {
     margin-left: 32px;
+    width: 256px;
 
     &__name {
       color: white;
@@ -201,21 +215,16 @@ $break-point: $max-width;
     }
   }
 
-  .portrait {
-    &__photo {
-      opacity: 0.8;
-      width: 200px;
-    }
-  }
-
   .history {
-    margin: 128px auto;
+    margin: 0 auto;
+    padding: 64px 0 0;
   }
 
   .history-content {
     align-items: center;
     display: flex;
-    justify-content: start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     margin: 80px auto;
     max-width: $max-width;
 
@@ -232,7 +241,8 @@ $break-point: $max-width;
   }
 
   .detail {
-    margin-left: 64px;
+    margin-left: 56px;
+    width: 336px;
 
     &__date {
       color: $text-color-weak;
@@ -240,6 +250,7 @@ $break-point: $max-width;
 
     &__description {
       color: $text-color-normal;
+      margin-top: 4px;
     }
   }
 
@@ -287,12 +298,18 @@ $break-point: $max-width;
 
 @media screen and (max-width: $break-point) {
   .main {
-    .eyecatch {
-      flex-wrap: wrap;
-    }
-
     .about-me {
       margin: -32vh 0 0;
+    }
+
+    .history-content {
+      justify-content: center;
+    }
+
+    .detail {
+      margin: 16px 0 0;
+      text-align: center;
+      width: 392px;
     }
   }
 }
