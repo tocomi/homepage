@@ -8,20 +8,31 @@
 
     <div class="eyecatch">
       <div class="portrait">
-        <img
-          src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-        />
+        <img class="portrait__photo" src="./assets/portrait.png" />
       </div>
       <div class="about-me">
-        <span class="eyecatch__text">Kenta TSUNEMI</span>
+        <p class="about-me__name">Kenta TSUNEMI</p>
+        <p class="about-me__job">Web engineer</p>
+        <div class="about-me__link link">
+          <template v-for="link in links">
+            <a :href="link.url" :alt="link.alt" :key="link.alt" target="_blank">
+              <img :src="link.icon" class="link__icon" />
+            </a>
+          </template>
+        </div>
       </div>
     </div>
 
     <div class="history">
-      <template v-for="i in 3">
-        <div class="history-content" :key="i">
-          <div class="history-content__icon" />
-          <span>text</span>
+      <template v-for="history in histories">
+        <div class="history-content" :key="history.key">
+          <div class="history-content__icon">
+            <component :is="history.iconName" />
+          </div>
+          <div class="history-content__detail detail">
+            <p class="detail__date">{{ history.date }}</p>
+            <p class="detail__description">{{ history.description }}</p>
+          </div>
         </div>
       </template>
     </div>
@@ -44,8 +55,86 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import CakeVariantIcon from 'vue-material-design-icons/CakeVariant.vue';
+import DomainIcon from 'vue-material-design-icons/Domain.vue';
+import SchoolIcon from 'vue-material-design-icons/School.vue';
+
 export default Vue.extend({
   name: 'App',
+  components: {
+    CakeVariantIcon,
+    DomainIcon,
+    SchoolIcon,
+  },
+  data(): {
+    histories: {
+      key: string;
+      iconName: string;
+      date: string;
+      description: string;
+    }[];
+    links: {
+      url: string;
+      icon: object;
+      alt: string;
+    }[];
+  } {
+    return {
+      histories: [
+        {
+          key: 'birth',
+          iconName: 'cake-variant-icon',
+          date: '1992/01',
+          description: '栃木県足利市にて誕生',
+        },
+        {
+          key: 'college',
+          iconName: 'school-icon',
+          date: '2015/03',
+          description: '東北大学経済学部 卒業',
+        },
+        {
+          key: 'company-01',
+          iconName: 'domain-icon',
+          date: '2015/04',
+          description: '株式会社ワークスアプリケーションズ 入社',
+        },
+        {
+          key: 'company-02',
+          iconName: 'domain-icon',
+          date: '2019/10',
+          description: 'パーソルキャリア株式会社 入社',
+        },
+      ],
+      links: [
+        {
+          url: 'https://github.com/tocomi/',
+          icon: require('./assets/github.png'),
+          alt: 'github',
+        },
+        {
+          url: 'https://qiita.com/tocomi/',
+          icon: require('./assets/qiita.png'),
+          alt: 'qiita',
+        },
+        {
+          url: 'https://twitter.com/tocomi0112/',
+          icon: require('./assets/twitter.png'),
+          alt: 'twitter',
+        },
+        {
+          url: 'https://note.com/tocomi/',
+          icon: require('./assets/note.png'),
+          alt: 'note',
+        },
+        {
+          url: 'https://www.facebook.com/kenta.tsunemi.5/',
+          icon: require('./assets/facebook.png'),
+          alt: 'facebook',
+        },
+      ],
+    };
+  },
 });
 </script>
 
@@ -55,8 +144,15 @@ body {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
 $theme-color: #4da3b5;
+$text-color-normal: #666;
+$text-color-weak: #bbb;
 $max-width: 480px;
+$break-point: $max-width;
 
 .main {
   .header {
@@ -68,6 +164,7 @@ $max-width: 480px;
     justify-content: center;
     position: fixed;
     width: 100%;
+    z-index: 10000;
   }
 
   .eyecatch {
@@ -77,29 +174,72 @@ $max-width: 480px;
     justify-content: center;
     height: 100vh;
     width: 100%;
+  }
 
-    &__text {
+  .about-me {
+    margin-left: 32px;
+
+    &__name {
       color: white;
       font-size: 32px;
+    }
+
+    &__job {
+      color: white;
+    }
+  }
+
+  .link {
+    margin-top: 24px;
+
+    &__icon {
+      background-color: #eee;
+      border: solid 1px #eee;
+      border-radius: 50%;
+      margin-right: 8px;
+      width: 40px;
+    }
+  }
+
+  .portrait {
+    &__photo {
+      opacity: 0.8;
+      width: 200px;
     }
   }
 
   .history {
-    margin-top: 128px;
+    margin: 128px auto;
   }
 
   .history-content {
     align-items: center;
     display: flex;
-    justify-content: space-around;
-    margin: 128px auto;
+    justify-content: start;
+    margin: 80px auto;
     max-width: $max-width;
 
     &__icon {
-      border: 3px solid $theme-color;
+      align-items: center;
+      border: 0.2vw solid $theme-color;
       border-radius: 50%;
+      color: $theme-color;
+      display: flex;
       height: 80px;
+      justify-content: center;
       width: 80px;
+    }
+  }
+
+  .detail {
+    margin-left: 64px;
+
+    &__date {
+      color: $text-color-weak;
+    }
+
+    &__description {
+      color: $text-color-normal;
     }
   }
 
@@ -141,6 +281,18 @@ $max-width: 480px;
     &__text {
       color: white;
       font-size: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: $break-point) {
+  .main {
+    .eyecatch {
+      flex-wrap: wrap;
+    }
+
+    .about-me {
+      margin: -32vh 0 0;
     }
   }
 }
