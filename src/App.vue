@@ -217,7 +217,7 @@ $break-point: 520px;
 
   .history {
     margin: 0 auto;
-    padding: 64px 0 0;
+    padding: 64px 0;
   }
 
   .history-content {
