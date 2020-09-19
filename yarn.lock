@@ -980,6 +980,12 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/vue-scrollto@^2.17.1":
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/@types/vue-scrollto/-/vue-scrollto-2.17.1.tgz#635b26f05524f05a7b242d93ac4980006e4e6870"
+  dependencies:
+    vue-scrollto "*"
+
 "@types/webpack-dev-server@^3.11.0":
   version "3.11.0"
   resolved "https://registry.npm.taobao.org/@types/webpack-dev-server/download/@types/webpack-dev-server-3.11.0.tgz?cache=0&sync_timestamp=1596842629963&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fwebpack-dev-server%2Fdownload%2F%40types%2Fwebpack-dev-server-3.11.0.tgz#bcc3b85e7dc6ac2db25330610513f2228c2fcfb2"
@@ -1757,6 +1763,10 @@ bcrypt-pbkdf@^1.0.0:
   resolved "https://registry.npm.taobao.org/bcrypt-pbkdf/download/bcrypt-pbkdf-1.0.2.tgz#a4301d389b6a43f9b67ff3ca11a3f6637e360e9e"
   dependencies:
     tweetnacl "^0.14.3"
+
+bezier-easing@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/bezier-easing/-/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
 
 bfj@^6.1.1:
   version "6.1.2"
@@ -7683,6 +7693,12 @@ vue-loader@^15.9.2:
 vue-material-design-icons@^4.9.0:
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/vue-material-design-icons/-/vue-material-design-icons-4.9.0.tgz#fc515d69ffac6df16883c7afeac0f01996c3d5fa"
+
+vue-scrollto@*, vue-scrollto@^2.18.2:
+  version "2.18.2"
+  resolved "https://registry.yarnpkg.com/vue-scrollto/-/vue-scrollto-2.18.2.tgz#113a3548341974d3a2560145f39fcc0378533821"
+  dependencies:
+    bezier-easing "2.1.0"
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
