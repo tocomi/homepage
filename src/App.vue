@@ -1,8 +1,8 @@
 <template>
   <div class="main">
     <header class="header">
-      <a class="header__link" href="#eyecatch">TOP</a>
-      <a class="header__link" href="#history">HISTORY</a>
+      <a class="header__link" href="#" v-scroll-to="'#eyecatch'">TOP</a>
+      <a class="header__link" href="#" v-scroll-to="'#history'">HISTORY</a>
     </header>
 
     <div id="eyecatch" class="eyecatch">
@@ -54,6 +54,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import ScrollReveal from 'scrollreveal';
+import VueScrollTo from 'vue-scrollto';
 
 import CakeVariantIcon from 'vue-material-design-icons/CakeVariant.vue';
 import DomainIcon from 'vue-material-design-icons/Domain.vue';
@@ -62,9 +63,23 @@ import SchoolIcon from 'vue-material-design-icons/School.vue';
 const scrollReveal = ScrollReveal();
 const scrollRevealOptions = {
   duration: 1600,
-  viewFactor: 0.7,
+  viewFactor: 0.6,
   reset: false,
 };
+
+Vue.use(VueScrollTo, {
+  container: 'body',
+  duration: 500,
+  easing: 'ease',
+  offset: 0,
+  force: true,
+  cancelable: true,
+  onStart: false,
+  onDone: false,
+  onCancel: false,
+  x: false,
+  y: true,
+});
 
 export default Vue.extend({
   name: 'App',
