@@ -955,6 +955,10 @@
   version "1.2.3"
   resolved "https://registry.npm.taobao.org/@types/range-parser/download/@types/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
 
+"@types/scrollreveal@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@types/scrollreveal/-/scrollreveal-0.0.6.tgz#e2e6a5e48dce3aa3d5c0bdf13280a7406e79c833"
+
 "@types/serve-static@*":
   version "1.13.5"
   resolved "https://registry.npm.taobao.org/@types/serve-static/download/@types/serve-static-1.13.5.tgz#3d25d941a18415d3ab092def846e135a08bbcf53"

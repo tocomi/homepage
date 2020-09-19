@@ -53,10 +53,18 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import ScrollReveal from 'scrollreveal';
 
 import CakeVariantIcon from 'vue-material-design-icons/CakeVariant.vue';
 import DomainIcon from 'vue-material-design-icons/Domain.vue';
 import SchoolIcon from 'vue-material-design-icons/School.vue';
+
+const scrollReveal = ScrollReveal();
+const scrollRevealOptions = {
+  duration: 1600,
+  viewFactor: 0.7,
+  reset: false,
+};
 
 export default Vue.extend({
   name: 'App',
@@ -64,6 +72,11 @@ export default Vue.extend({
     CakeVariantIcon,
     DomainIcon,
     SchoolIcon,
+  },
+  mounted() {
+    scrollReveal.reveal('.portrait', scrollRevealOptions);
+    scrollReveal.reveal('.about-me', scrollRevealOptions);
+    scrollReveal.reveal('.history-content', scrollRevealOptions);
   },
   data(): {
     histories: {
