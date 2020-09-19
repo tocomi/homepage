@@ -96,13 +96,13 @@ export default Vue.extend({
           key: 'company-01',
           iconName: 'domain-icon',
           date: '2015/04',
-          description: '株式会社ワークスアプリケーションズ 入社',
+          description: 'ERPパッケージベンダー 入社',
         },
         {
           key: 'company-02',
           iconName: 'domain-icon',
           date: '2019/10',
-          description: 'パーソルキャリア株式会社 入社',
+          description: '人材系企業 入社',
         },
       ],
       links: [
