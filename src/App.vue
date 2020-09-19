@@ -167,8 +167,12 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+/* import google font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif&display=swap');
+
 /* reset css */
 body {
+  font-family: 'Noto Serif', 'Noto Sans JP', sans-serif;
   margin: 0;
 }
 
