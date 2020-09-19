@@ -11,6 +11,7 @@
       </div>
       <div class="about-me">
         <p class="about-me__name">Kenta TSUNEMI</p>
+        <p class="about-me__nickname">@tocomi</p>
         <p class="about-me__job">Web engineer</p>
         <div class="about-me__link link">
           <template v-for="link in links">
@@ -218,16 +219,21 @@ $break-point: 520px;
   }
 
   .about-me {
+    color: white;
     margin-left: 32px;
     width: 256px;
 
     &__name {
-      color: white;
       font-size: 32px;
     }
 
+    &__nickname {
+      font-size: 20px;
+      margin-top: -8px;
+    }
+
     &__job {
-      color: white;
+      margin-top: 8px;
     }
   }
 
