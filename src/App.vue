@@ -35,6 +35,7 @@
           </div>
         </div>
       </template>
+      <job-history />
     </div>
 
     <!-- <div class="portfolio">
@@ -60,6 +61,8 @@ import VueScrollTo from 'vue-scrollto';
 import CakeVariantIcon from 'vue-material-design-icons/CakeVariant.vue';
 import DomainIcon from 'vue-material-design-icons/Domain.vue';
 import SchoolIcon from 'vue-material-design-icons/School.vue';
+
+import JobHistory from './components/organisms/JobHistory.vue';
 
 const scrollReveal = ScrollReveal();
 const scrollRevealOptions = {
@@ -88,6 +91,7 @@ export default Vue.extend({
     CakeVariantIcon,
     DomainIcon,
     SchoolIcon,
+    JobHistory,
   },
   mounted() {
     scrollReveal.reveal('.portrait', scrollRevealOptions);
