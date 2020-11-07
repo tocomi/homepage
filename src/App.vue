@@ -35,7 +35,7 @@
           </div>
         </div>
       </template>
-      <job-history />
+      <!-- <job-history /> -->
     </div>
 
     <!-- <div class="portfolio">
