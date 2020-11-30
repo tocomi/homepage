@@ -61,6 +61,9 @@ import CakeVariantIcon from 'vue-material-design-icons/CakeVariant.vue';
 import DomainIcon from 'vue-material-design-icons/Domain.vue';
 import SchoolIcon from 'vue-material-design-icons/School.vue';
 
+import { links } from './data/links';
+import { histories } from './data/histories';
+
 const scrollReveal = ScrollReveal();
 const scrollRevealOptions = {
   duration: 1600,
@@ -94,73 +97,10 @@ export default Vue.extend({
     scrollReveal.reveal('.about-me', scrollRevealOptions);
     scrollReveal.reveal('.history-content', scrollRevealOptions);
   },
-  data(): {
-    histories: {
-      key: string;
-      iconName: string;
-      date: string;
-      description: string;
-    }[];
-    links: {
-      url: string;
-      icon: object;
-      alt: string;
-    }[];
-  } {
+  data() {
     return {
-      histories: [
-        {
-          key: 'birth',
-          iconName: 'cake-variant-icon',
-          date: '1992/01',
-          description: '栃木県足利市にて誕生',
-        },
-        {
-          key: 'college',
-          iconName: 'school-icon',
-          date: '2015/03',
-          description: '東北大学経済学部 卒業',
-        },
-        {
-          key: 'company-01',
-          iconName: 'domain-icon',
-          date: '2015/04',
-          description: 'ERPパッケージベンダー 入社',
-        },
-        {
-          key: 'company-02',
-          iconName: 'domain-icon',
-          date: '2019/10',
-          description: '人材系企業 入社',
-        },
-      ],
-      links: [
-        {
-          url: 'https://github.com/tocomi/',
-          icon: require('./assets/github.png'),
-          alt: 'github',
-        },
-        {
-          url: 'https://qiita.com/tocomi/',
-          icon: require('./assets/qiita.png'),
-          alt: 'qiita',
-        },
-        {
-          url: 'https://twitter.com/tocomi0112/',
-          icon: require('./assets/twitter.png'),
-          alt: 'twitter',
-        },
-        {
-          url: 'https://note.com/tocomi/',
-          icon: require('./assets/note.png'),
-          alt: 'note',
-        },
-        {
-          url: 'https://www.facebook.com/kenta.tsunemi.5/',
-          icon: require('./assets/facebook.png'),
-          alt: 'facebook',
-        },
-      ],
+      histories,
+      links,
     };
   },
 });
