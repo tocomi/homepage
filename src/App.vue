@@ -37,14 +37,9 @@
       </template>
     </div>
 
-    <!-- <div class="portfolio">
-      <template v-for="i in 3">
-        <div class="portfolio-card" :key="i">
-          <div class="portfolio-card__header">aaa</div>
-          <div class="portfolio-card__content">bbb</div>
-        </div>
-      </template>
-    </div> -->
+    <div class="portfolio">
+      <portfolio />
+    </div>
 
     <div class="footer">
       <span class="footer__text">Kenta TSUNEMI</span>
@@ -60,6 +55,8 @@ import VueScrollTo from 'vue-scrollto';
 import CakeVariantIcon from 'vue-material-design-icons/CakeVariant.vue';
 import DomainIcon from 'vue-material-design-icons/Domain.vue';
 import SchoolIcon from 'vue-material-design-icons/School.vue';
+
+import Portfolio from './components/organisms/Portfolio.vue';
 
 import { links } from './data/links';
 import { histories } from './data/histories';
@@ -91,6 +88,7 @@ export default Vue.extend({
     CakeVariantIcon,
     DomainIcon,
     SchoolIcon,
+    Portfolio,
   },
   mounted() {
     scrollReveal.reveal('.portrait', scrollRevealOptions);
@@ -108,23 +106,20 @@ export default Vue.extend({
 
 <style lang="scss">
 /* import google font */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@100;300&display=swap');
+
+/* common css */
+@import './styles/common';
 
 /* reset css */
 body {
-  font-family: 'Noto Serif', 'Noto Sans JP', sans-serif;
+  font-family: 'Roboto', 'Noto Sans JP', sans-serif;
   margin: 0;
 }
 
 p {
   margin: 0;
 }
-
-$theme-color: #4da3b5;
-$text-color-normal: #666;
-$text-color-weak: #bbb;
-$max-width: 480px;
-$break-point: 520px;
 
 .main {
   .header {
@@ -235,28 +230,6 @@ $break-point: 520px;
   .portfolio {
     margin-top: 128px;
     padding: 0 16px;
-  }
-
-  .portfolio-card {
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-    max-width: $max-width;
-    margin: 32px auto;
-
-    &__header {
-      align-items: center;
-      background: $theme-color;
-      color: white;
-      display: flex;
-      height: 56px;
-      justify-content: center;
-    }
-
-    &__content {
-      align-items: center;
-      display: flex;
-      height: 280px;
-      justify-content: center;
-    }
   }
 
   .footer {
