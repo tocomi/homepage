@@ -1,52 +1,60 @@
 <template>
   <div class="portfolio-wrapper">
     <div class="portfolio-card">
-      <div class="portfolio-card__header">Smoker's</div>
+      <div class="portfolio-card__header">{{ artifact.name }}</div>
       <div class="portfolio-card__content content">
-        <img
-          class="content__image"
-          src="../../assets/portfolio/smokers/001.jpg"
-        />
+        <img class="content__image" :src="artifact.image" />
         <span class="content__description">
-          現在地の近くにある喫煙所、喫煙可能店舗を検索できるモバイルアプリです。
-          <br />
-          <br />
-          業務委託契約でフロントエンド、バックエンドの開発を担当しています。
+          {{ artifact.description }}
         </span>
       </div>
       <div class="portfolio-card__app-link app-link">
-        <img
-          class="app-link__image"
-          src="../../assets/portfolio/smokers/apple.svg"
-        />
-        <img
-          class="app-link__image"
-          src="../../assets/portfolio/smokers/google.png"
-        />
+        <a
+          class="app-link__link"
+          :href="artifact.storeInfo.appleLink"
+          target="_blank"
+        >
+          <img class="app-link__image" :src="artifact.storeInfo.appleImage" />
+        </a>
+        <a
+          class="app-link__link"
+          :href="artifact.storeInfo.googleLink"
+          target="_blank"
+        >
+          <img class="app-link__image" :src="artifact.storeInfo.googleImage" />
+        </a>
       </div>
       <div class="portfolio-card__tech tech">
-        <tech-badge
-          :icon="require('../../assets/tech/react.png')"
-          text="react"
-        />
-        <tech-badge
-          :icon="require('../../assets/tech/firebase.png')"
-          text="firebase"
-        />
+        <template v-for="technology in artifact.technologies">
+          <tech-badge
+            :icon="technology.image"
+            :text="technology.name"
+            :key="technology.name"
+          />
+        </template>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 
 import TechBadge from '../atoms/TechBadge.vue';
+
+import { Artifact } from '../../data/artifacts';
 
 export default Vue.extend({
   name: 'PortfolioComponent',
   components: {
     TechBadge,
+  },
+  props: {
+    artifact: {
+      type: Object as PropType<Artifact>,
+      required: true,
+      default: {},
+    },
   },
 });
 </script>
@@ -96,7 +104,11 @@ export default Vue.extend({
     .app-link {
       align-items: center;
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-start;
+
+      &__link:nth-child(2) {
+        margin-left: 12px;
+      }
 
       &__image {
         height: 48px;

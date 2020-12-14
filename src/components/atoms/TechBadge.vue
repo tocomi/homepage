@@ -32,22 +32,23 @@ export default Vue.extend({
 .badge-wrapper {
   display: inline-block;
 
+  &:nth-child(n + 2) {
+    margin-left: 8px;
+  }
+
   .badge {
     align-items: center;
-    background-color: $theme-color;
-    border-radius: 12px;
+    border-bottom: solid 2px $theme-color;
     display: flex;
     height: 24px;
     padding: 0 8px 0 4px;
 
     &__icon {
-      border-radius: 10px;
-      background-color: white;
       height: 18px;
     }
 
     &__text {
-      color: white;
+      color: $text-color-normal;
       line-height: 1;
       margin-left: 4px;
     }

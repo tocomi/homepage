@@ -39,7 +39,9 @@
     </div>
 
     <div class="portfolio">
-      <portfolio />
+      <template v-for="artifact in artifacts">
+        <portfolio :artifact="artifact" :key="artifact.name" />
+      </template>
     </div>
 
     <div class="footer">
@@ -62,6 +64,7 @@ import Portfolio from './components/organisms/Portfolio.vue';
 
 import { links } from './data/links';
 import { histories } from './data/histories';
+import { artifacts } from './data/artifacts';
 
 const scrollReveal = ScrollReveal();
 const scrollRevealOptions = {
@@ -102,6 +105,7 @@ export default Vue.extend({
     return {
       histories,
       links,
+      artifacts,
     };
   },
 });
