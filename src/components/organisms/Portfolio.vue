@@ -4,11 +4,30 @@
       <div class="portfolio-card__header">{{ artifact.name }}</div>
       <div class="portfolio-card__content content">
         <img class="content__image" :src="artifact.image" />
-        <span class="content__description">
-          {{ artifact.description }}
-        </span>
+        <div class="content__description">
+          <p
+            v-for="description in artifact.descriptions"
+            :key="description"
+            class="line"
+          >
+            {{ description }}
+          </p>
+        </div>
       </div>
-      <div class="portfolio-card__app-link app-link">
+      <!-- Web App -->
+      <div
+        v-if="artifact.applicationLink || artifact.githubLink"
+        class="portfolio-card__link link"
+      >
+        <a :href="artifact.applicationLink" target="_blank" class="link__app">
+          Open App
+        </a>
+        <a :href="artifact.githubLink" target="_blank" class="link__github">
+          <img class="link__github-image" src="../../assets/tech/github.png" />
+        </a>
+      </div>
+      <!-- Mobile App -->
+      <div v-if="artifact.storeInfo" class="portfolio-card__app-link app-link">
         <a
           class="app-link__link"
           :href="artifact.storeInfo.appleLink"
@@ -27,7 +46,7 @@
       <div class="portfolio-card__tech tech">
         <template v-for="technology in artifact.technologies">
           <tech-badge
-            :icon="technology.image"
+            :icon-path="technology.image"
             :text="technology.name"
             :key="technology.name"
           />
@@ -66,7 +85,7 @@ export default Vue.extend({
 .portfolio-wrapper {
   .portfolio-card {
     max-width: $max-width;
-    margin: 32px auto;
+    margin: 0 auto;
 
     &__header {
       color: $theme-color;
@@ -94,6 +113,32 @@ export default Vue.extend({
       &__description {
         color: $text-color-normal;
         margin-left: 16px;
+      }
+    }
+
+    .line {
+      margin-top: 8px;
+    }
+
+    &__link {
+      margin-top: 16px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+
+      &__app {
+        color: $theme-color;
+        text-decoration: none;
+      }
+
+      &__github {
+        margin-left: 16px;
+      }
+
+      &__github-image {
+        height: 40px;
       }
     }
 

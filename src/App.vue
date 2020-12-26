@@ -40,7 +40,11 @@
 
     <div class="portfolio">
       <template v-for="artifact in artifacts">
-        <portfolio :artifact="artifact" :key="artifact.name" />
+        <portfolio
+          class="portfolio__card"
+          :artifact="artifact"
+          :key="artifact.name"
+        />
       </template>
     </div>
 
@@ -235,8 +239,12 @@ p {
   }
 
   .portfolio {
-    margin-top: 128px;
+    margin: 32px 0 64px;
     padding: 0 16px;
+
+    &__card {
+      margin-top: 120px;
+    }
   }
 
   .footer {

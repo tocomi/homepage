@@ -1,7 +1,7 @@
 <template>
   <div class="badge-wrapper">
     <div class="badge">
-      <img class="badge__icon" :src="icon" />
+      <img class="badge__icon" :src="iconPath" />
       <span class="badge__text">{{ text }}</span>
     </div>
   </div>
@@ -13,8 +13,8 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'TechBadgeAtom',
   props: {
-    icon: {
-      type: Object,
+    iconPath: {
+      type: String,
       required: true,
     },
     text: {
