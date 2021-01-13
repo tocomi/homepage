@@ -37,15 +37,15 @@ const artifacts: Artifact[] = [
     },
     technologies: [
       {
-        name: 'firebase',
+        name: 'Firebase',
         image: require('../assets/tech/firebase.png'),
       },
       {
-        name: 'react',
+        name: 'React',
         image: require('../assets/tech/react.png'),
       },
       {
-        name: 'typescript',
+        name: 'Typescript',
         image: require('../assets/tech/typescript.png'),
       },
     ],
@@ -62,7 +62,7 @@ const artifacts: Artifact[] = [
     githubLink: 'https://github.com/tocomi/umaaji-calculator',
     technologies: [
       {
-        name: 'firebase',
+        name: 'Firebase',
         image: require('../assets/tech/firebase.png'),
       },
       {
@@ -70,7 +70,7 @@ const artifacts: Artifact[] = [
         image: require('../assets/tech/vuejs.png'),
       },
       {
-        name: 'typescript',
+        name: 'Typescript',
         image: require('../assets/tech/typescript.png'),
       },
       {
