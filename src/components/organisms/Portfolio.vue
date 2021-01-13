@@ -19,8 +19,13 @@
         v-if="artifact.applicationLink || artifact.githubLink"
         class="portfolio-card__link link"
       >
-        <a :href="artifact.applicationLink" target="_blank" class="link__app">
-          Open App
+        <a
+          :href="artifact.applicationLink"
+          target="_blank"
+          class="link__app app"
+        >
+          <open-in-new :size="24" />
+          <span class="app__label">Open App</span>
         </a>
         <a :href="artifact.githubLink" target="_blank" class="link__github">
           <img class="link__github-image" src="../../assets/tech/github.png" />
@@ -59,6 +64,8 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 
+import OpenInNew from 'vue-material-design-icons/OpenInNew.vue';
+
 import TechBadge from '../atoms/TechBadge.vue';
 
 import { Artifact } from '../../data/artifacts';
@@ -67,6 +74,7 @@ export default Vue.extend({
   name: 'PortfolioComponent',
   components: {
     TechBadge,
+    OpenInNew,
   },
   props: {
     artifact: {
@@ -131,6 +139,16 @@ export default Vue.extend({
       &__app {
         color: $theme-color;
         text-decoration: none;
+      }
+
+      .app {
+        align-items: center;
+        display: flex;
+
+        &__label {
+          font-size: 16px;
+          margin: -4px 0 0 4px;
+        }
       }
 
       &__github {

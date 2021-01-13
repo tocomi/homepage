@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div id="history" class="history">
+    <!-- <div id="history" class="history">
       <template v-for="history in histories">
         <div class="history-content" :key="history.key">
           <div class="history-content__icon">
@@ -35,10 +35,13 @@
           </div>
         </div>
       </template>
-      <!-- <job-history /> -->
-    </div>
+      <job-history />
+    </div> -->
 
     <div class="portfolio">
+      <div class="portfolio__heading heading">
+        <h2 class="heading__text">PORTFOLIO</h2>
+      </div>
       <template v-for="artifact in artifacts">
         <portfolio
           class="portfolio__card"
@@ -59,11 +62,11 @@ import Vue from 'vue';
 import ScrollReveal from 'scrollreveal';
 import VueScrollTo from 'vue-scrollto';
 
-import CakeVariantIcon from 'vue-material-design-icons/CakeVariant.vue';
-import DomainIcon from 'vue-material-design-icons/Domain.vue';
-import SchoolIcon from 'vue-material-design-icons/School.vue';
+// import CakeVariantIcon from 'vue-material-design-icons/CakeVariant.vue';
+// import DomainIcon from 'vue-material-design-icons/Domain.vue';
+// import SchoolIcon from 'vue-material-design-icons/School.vue';
 
-import JobHistory from './components/organisms/JobHistory.vue';
+// import JobHistory from './components/organisms/JobHistory.vue';
 import Portfolio from './components/organisms/Portfolio.vue';
 
 import { links } from './data/links';
@@ -94,16 +97,18 @@ Vue.use(VueScrollTo, {
 export default Vue.extend({
   name: 'App',
   components: {
-    CakeVariantIcon,
-    DomainIcon,
-    SchoolIcon,
+    // CakeVariantIcon,
+    // DomainIcon,
+    // SchoolIcon,
     Portfolio,
-    JobHistory,
+    // JobHistory,
   },
   mounted() {
     scrollReveal.reveal('.portrait', scrollRevealOptions);
     scrollReveal.reveal('.about-me', scrollRevealOptions);
     scrollReveal.reveal('.history-content', scrollRevealOptions);
+    scrollReveal.reveal('.heading', scrollRevealOptions);
+    scrollReveal.reveal('.portfolio__card', scrollRevealOptions);
   },
   data() {
     return {
@@ -175,11 +180,12 @@ p {
 
     &__name {
       font-size: 32px;
+      letter-spacing: 1px;
     }
 
     &__nickname {
       font-size: 20px;
-      margin-top: -8px;
+      margin-top: -4px;
     }
 
     &__job {
@@ -239,11 +245,29 @@ p {
   }
 
   .portfolio {
-    margin: 32px 0 64px;
+    margin: 96px 0;
     padding: 0 16px;
+
+    &__heading {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
 
     &__card {
       margin-top: 120px;
+    }
+  }
+
+  .heading {
+    &__text {
+      color: $theme-color;
+      border-bottom: solid 1px $theme-color;
+      font-size: 32px;
+      line-height: 64px;
+      letter-spacing: 6px;
+      text-align: center;
+      width: 280px;
     }
   }
 
