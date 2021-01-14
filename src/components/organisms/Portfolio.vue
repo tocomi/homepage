@@ -115,9 +115,11 @@ export default Vue.extend({
       justify-content: flex-start;
 
       &__image {
+        border: solid 1px #eee;
         border-radius: 12px;
         height: 280px;
       }
+
       &__description {
         color: $text-color-normal;
         margin-left: 16px;

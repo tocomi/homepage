@@ -2,7 +2,7 @@
   <div class="main">
     <header class="header">
       <a class="header__link" href="#" v-scroll-to="'#eyecatch'">TOP</a>
-      <a class="header__link" href="#" v-scroll-to="'#history'">HISTORY</a>
+      <a class="header__link" href="#" v-scroll-to="'#portfolio'">PORTFOLIO</a>
     </header>
 
     <div id="eyecatch" class="eyecatch">
@@ -38,7 +38,7 @@
       <job-history />
     </div> -->
 
-    <div class="portfolio">
+    <div id="portfolio" class="portfolio">
       <div class="portfolio__heading heading">
         <h2 class="heading__text">PORTFOLIO</h2>
       </div>

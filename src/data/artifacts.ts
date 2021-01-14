@@ -74,8 +74,36 @@ const artifacts: Artifact[] = [
         image: require('../assets/tech/typescript.png'),
       },
       {
+        name: 'PWA',
+        image: require('../assets/tech/pwa.png'),
+      },
+      {
         name: 'Python',
         image: require('../assets/tech/python.png'),
+      },
+    ],
+  },
+  {
+    name: 'kabuker',
+    image: require('../assets/portfolio/kabuker/001.jpg'),
+    descriptions: [
+      'あつ森のカブ価を共有するWebアプリです。',
+      '入力値を元にカブ価のパターンを判別することもできます。',
+    ],
+    applicationLink: 'https://kabuker.firebaseapp.com/',
+    githubLink: 'https://github.com/tocomi/kabuker',
+    technologies: [
+      {
+        name: 'Firebase',
+        image: require('../assets/tech/firebase.png'),
+      },
+      {
+        name: 'Vue.js',
+        image: require('../assets/tech/vuejs.png'),
+      },
+      {
+        name: 'PWA',
+        image: require('../assets/tech/pwa.png'),
       },
     ],
   },
