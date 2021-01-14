@@ -50,11 +50,9 @@
       </div>
       <div class="portfolio-card__tech tech">
         <template v-for="technology in artifact.technologies">
-          <tech-badge
-            :icon-path="technology.image"
-            :text="technology.name"
-            :key="technology.name"
-          />
+          <div class="tech__badge" :key="technology.name">
+            <tech-badge :icon-path="technology.image" :text="technology.name" />
+          </div>
         </template>
       </div>
     </div>
@@ -181,7 +179,14 @@ export default Vue.extend({
     }
 
     &__tech {
-      margin-top: 16px;
+      margin-top: 8px;
+    }
+
+    .tech {
+      &__badge {
+        display: inline-block;
+        margin: 8px 0 0 8px;
+      }
     }
   }
 }

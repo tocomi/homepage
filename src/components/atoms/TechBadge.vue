@@ -32,10 +32,6 @@ export default Vue.extend({
 .badge-wrapper {
   display: inline-block;
 
-  &:nth-child(n + 2) {
-    margin-left: 8px;
-  }
-
   .badge {
     align-items: center;
     border-bottom: solid 2px $theme-color;
