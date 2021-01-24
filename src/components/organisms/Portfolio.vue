@@ -125,6 +125,7 @@ export default Vue.extend({
     }
 
     .line {
+      font-size: 14px;
       margin-top: 8px;
     }
 

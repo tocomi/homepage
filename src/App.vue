@@ -2,58 +2,69 @@
   <div class="main">
     <header class="header">
       <a class="header__link" href="#" v-scroll-to="'#eyecatch'">TOP</a>
+      <a class="header__link" href="#" v-scroll-to="'#biography'">BIOGRAPHY</a>
       <a class="header__link" href="#" v-scroll-to="'#portfolio'">PORTFOLIO</a>
     </header>
 
-    <div id="eyecatch" class="eyecatch">
-      <div class="portrait">
-        <img class="portrait__photo" src="./assets/portrait.png" />
-      </div>
-      <div class="about-me">
-        <p class="about-me__name">Kenta TSUNEMI</p>
-        <p class="about-me__nickname">@tocomi</p>
-        <p class="about-me__job">Web engineer</p>
-        <div class="about-me__link link">
-          <template v-for="link in links">
-            <a :href="link.url" :alt="link.alt" :key="link.alt" target="_blank">
-              <img :src="link.icon" class="link__icon" />
-            </a>
-          </template>
+    <main>
+      <div id="eyecatch" class="eyecatch">
+        <div class="portrait">
+          <img class="portrait__photo" src="./assets/portrait.png" />
         </div>
-      </div>
-    </div>
-
-    <!-- <div id="history" class="history">
-      <template v-for="history in histories">
-        <div class="history-content" :key="history.key">
-          <div class="history-content__icon">
-            <component :is="history.iconName" />
-          </div>
-          <div class="history-content__detail detail">
-            <p class="detail__date">{{ history.date }}</p>
-            <p class="detail__description">{{ history.description }}</p>
+        <div class="about-me">
+          <p class="about-me__name">Kenta TSUNEMI</p>
+          <p class="about-me__nickname">@tocomi</p>
+          <p class="about-me__job">Web engineer</p>
+          <div class="about-me__link link">
+            <template v-for="link in links">
+              <a
+                :href="link.url"
+                :alt="link.alt"
+                :key="link.alt"
+                target="_blank"
+              >
+                <img :src="link.icon" class="link__icon" />
+              </a>
+            </template>
           </div>
         </div>
-      </template>
-      <job-history />
-    </div> -->
-
-    <div id="portfolio" class="portfolio">
-      <div class="portfolio__heading heading">
-        <h2 class="heading__text">PORTFOLIO</h2>
       </div>
-      <template v-for="artifact in artifacts">
-        <portfolio
-          class="portfolio__card"
-          :artifact="artifact"
-          :key="artifact.name"
-        />
-      </template>
-    </div>
 
-    <div class="footer">
+      <div id="biography" class="biography">
+        <heading text="BIOGRAPHY" />
+        <biography />
+      </div>
+
+      <div id="portfolio" class="portfolio">
+        <heading text="PORTFOLIO" />
+        <template v-for="artifact in artifacts">
+          <portfolio
+            class="portfolio__card"
+            :artifact="artifact"
+            :key="artifact.name"
+          />
+        </template>
+      </div>
+
+      <!-- <div id="history" class="history">
+        <template v-for="history in histories">
+          <div class="history-content" :key="history.key">
+            <div class="history-content__icon">
+              <component :is="history.iconName" />
+            </div>
+            <div class="history-content__detail detail">
+              <p class="detail__date">{{ history.date }}</p>
+              <p class="detail__description">{{ history.description }}</p>
+            </div>
+          </div>
+        </template>
+        <job-history />
+      </div> -->
+    </main>
+
+    <footer class="footer">
       <span class="footer__text">Kenta TSUNEMI</span>
-    </div>
+    </footer>
   </div>
 </template>
 
@@ -68,6 +79,8 @@ import VueScrollTo from 'vue-scrollto';
 
 // import JobHistory from './components/organisms/JobHistory.vue';
 import Portfolio from './components/organisms/Portfolio.vue';
+import Biography from './components/organisms/Biography.vue';
+import Heading from './components/atoms/Heading.vue';
 
 import { links } from './data/links';
 import { histories } from './data/histories';
@@ -97,10 +110,12 @@ Vue.use(VueScrollTo, {
 export default Vue.extend({
   name: 'App',
   components: {
+    Heading,
     // CakeVariantIcon,
     // DomainIcon,
     // SchoolIcon,
     Portfolio,
+    Biography,
     // JobHistory,
   },
   mounted() {
@@ -205,6 +220,11 @@ p {
     }
   }
 
+  .biography {
+    margin-top: 96px;
+    padding: 0 16px;
+  }
+
   .history {
     margin: 0 auto;
     padding: 64px 0;
@@ -248,26 +268,8 @@ p {
     margin: 96px 0;
     padding: 0 16px;
 
-    &__heading {
-      align-items: center;
-      display: flex;
-      justify-content: center;
-    }
-
     &__card {
       margin-top: 120px;
-    }
-  }
-
-  .heading {
-    &__text {
-      color: $theme-color;
-      border-bottom: solid 1px $theme-color;
-      font-size: 32px;
-      line-height: 64px;
-      letter-spacing: 6px;
-      text-align: center;
-      width: 280px;
     }
   }
 
