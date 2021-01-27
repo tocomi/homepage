@@ -121,7 +121,7 @@ export default Vue.extend({
   mounted() {
     scrollReveal.reveal('.portrait', scrollRevealOptions);
     scrollReveal.reveal('.about-me', scrollRevealOptions);
-    scrollReveal.reveal('.history-content', scrollRevealOptions);
+    scrollReveal.reveal('.content', scrollRevealOptions);
     scrollReveal.reveal('.heading', scrollRevealOptions);
     scrollReveal.reveal('.portfolio__card', scrollRevealOptions);
   },
