@@ -122,6 +122,7 @@ export default Vue.extend({
     }
     &__content {
       color: $text-color-normal;
+      font-size: 14px;
       margin-top: 8px;
     }
   }
