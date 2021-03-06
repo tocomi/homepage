@@ -10,9 +10,14 @@
     </section>
     <section class="content">
       <p class="heading">経歴</p>
+      <separate-line />
       <div class="job">
         <p class="job__term">
-          <calendar-icon :size="20" fillColor="#4da3b5" />
+          <calendar-icon
+            class="job__calendar-icon"
+            :size="20"
+            fillColor="#4da3b5"
+          />
           2015.04 - 2019.09
         </p>
         <p class="job__content">
@@ -24,7 +29,11 @@
       </div>
       <div class="job">
         <p class="job__term">
-          <calendar-icon :size="20" fillColor="#4da3b5" />
+          <calendar-icon
+            class="job__calendar-icon"
+            :size="20"
+            fillColor="#4da3b5"
+          />
           2019.10 - 2021.01
         </p>
         <p class="job__content">
@@ -37,6 +46,7 @@
     </section>
     <section class="content">
       <p class="heading">興味領域</p>
+      <separate-line />
       <div class="list-wrapper">
         <ul class="list">
           <li>フロントエンド</li>
@@ -50,12 +60,14 @@
     </section>
     <section class="content">
       <p class="heading">ストレングスファインダー</p>
+      <separate-line />
       <div class="list-wrapper">
         <strength-finder />
       </div>
     </section>
     <section class="content">
       <p class="heading">趣味</p>
+      <separate-line />
       <div class="list-wrapper">
         <ul class="list">
           <li>野球観戦</li>
@@ -76,12 +88,14 @@ import Vue from 'vue';
 import CalendarIcon from 'vue-material-design-icons/Calendar.vue';
 
 import StrengthFinder from '../molecules/StrengthFinder.vue';
+import SeparateLine from '../atoms/SeparateLine.vue';
 
 export default Vue.extend({
   name: 'Biography',
   components: {
-    StrengthFinder,
     CalendarIcon,
+    SeparateLine,
+    StrengthFinder,
   },
 });
 </script>
@@ -91,21 +105,21 @@ export default Vue.extend({
 @import '../../styles/common';
 
 .biography {
-  text-align: center;
-
   .content {
     margin-top: 96px;
   }
 
   .heading {
-    color: $theme-color;
-    font-size: 16px;
+    color: $text-color-normal;
+    font-size: 24px;
+    font-weight: 700;
   }
 
   .summary {
     color: $text-color-normal;
 
     &__content {
+      font-size: 18px;
       margin-top: 8px;
     }
   }
@@ -113,16 +127,21 @@ export default Vue.extend({
   .job {
     margin-top: 64px;
 
+    &__calendar-icon {
+      margin: 6px 2px 0 0;
+    }
     &__term {
       align-items: center;
       color: $text-color-normal;
       display: flex;
-      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      justify-content: left;
       margin-bottom: 16px;
     }
     &__content {
       color: $text-color-normal;
-      font-size: 14px;
+      font-size: 16px;
       margin-top: 8px;
     }
   }
@@ -135,7 +154,7 @@ export default Vue.extend({
 
   .list {
     color: $text-color-normal;
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
     width: 144px;
   }

@@ -32,8 +32,11 @@
   justify-content: center;
 
   .title {
+    color: $text-color-normal;
     font-size: 15px;
+    font-weight: 700;
     margin-left: 8px;
+    text-align: center;
   }
 
   .list {

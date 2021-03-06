@@ -7,59 +7,27 @@
     </header>
 
     <main>
-      <div id="eyecatch" class="eyecatch">
-        <div class="portrait">
-          <img class="portrait__photo" src="./assets/portrait.png" />
-        </div>
-        <div class="about-me">
-          <p class="about-me__name">Kenta TSUNEMI</p>
-          <p class="about-me__nickname">@tocomi</p>
-          <p class="about-me__job">Web engineer</p>
-          <div class="about-me__link link">
-            <template v-for="link in links">
-              <a
-                :href="link.url"
-                :alt="link.alt"
-                :key="link.alt"
-                target="_blank"
-              >
-                <img :src="link.icon" class="link__icon" />
-              </a>
+      <eyecatch />
+
+      <section class="main-container">
+        <div class="main-wrapper">
+          <div id="biography" class="biography-container">
+            <heading text="BIOGRAPHY" />
+            <biography />
+          </div>
+
+          <div id="portfolio" class="portfolio-container">
+            <heading text="PORTFOLIO" />
+            <template v-for="artifact in artifacts">
+              <portfolio
+                class="portfolio__card"
+                :artifact="artifact"
+                :key="artifact.name"
+              />
             </template>
           </div>
         </div>
-      </div>
-
-      <div id="biography" class="biography">
-        <heading text="BIOGRAPHY" />
-        <biography />
-      </div>
-
-      <div id="portfolio" class="portfolio">
-        <heading text="PORTFOLIO" />
-        <template v-for="artifact in artifacts">
-          <portfolio
-            class="portfolio__card"
-            :artifact="artifact"
-            :key="artifact.name"
-          />
-        </template>
-      </div>
-
-      <!-- <div id="history" class="history">
-        <template v-for="history in histories">
-          <div class="history-content" :key="history.key">
-            <div class="history-content__icon">
-              <component :is="history.iconName" />
-            </div>
-            <div class="history-content__detail detail">
-              <p class="detail__date">{{ history.date }}</p>
-              <p class="detail__description">{{ history.description }}</p>
-            </div>
-          </div>
-        </template>
-        <job-history />
-      </div> -->
+      </section>
     </main>
 
     <footer class="footer">
@@ -73,13 +41,9 @@ import Vue from 'vue';
 import ScrollReveal from 'scrollreveal';
 import VueScrollTo from 'vue-scrollto';
 
-// import CakeVariantIcon from 'vue-material-design-icons/CakeVariant.vue';
-// import DomainIcon from 'vue-material-design-icons/Domain.vue';
-// import SchoolIcon from 'vue-material-design-icons/School.vue';
-
-// import JobHistory from './components/organisms/JobHistory.vue';
-import Portfolio from './components/organisms/Portfolio.vue';
+import Eyecatch from './components/organisms/Eyecatch.vue';
 import Biography from './components/organisms/Biography.vue';
+import Portfolio from './components/organisms/Portfolio.vue';
 import Heading from './components/atoms/Heading.vue';
 
 import { links } from './data/links';
@@ -110,13 +74,10 @@ Vue.use(VueScrollTo, {
 export default Vue.extend({
   name: 'App',
   components: {
-    Heading,
-    // CakeVariantIcon,
-    // DomainIcon,
-    // SchoolIcon,
-    Portfolio,
     Biography,
-    // JobHistory,
+    Eyecatch,
+    Heading,
+    Portfolio,
   },
   mounted() {
     scrollReveal.reveal('.portrait', scrollRevealOptions);
@@ -137,14 +98,14 @@ export default Vue.extend({
 
 <style lang="scss">
 /* import google font */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
 
 /* common css */
 @import './styles/common';
 
 /* reset css */
 body {
-  font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans', 'Noto Sans JP', sans-serif;
   margin: 0;
 }
 
@@ -171,58 +132,19 @@ p {
     }
   }
 
-  .eyecatch {
-    align-items: center;
-    background: linear-gradient($theme-color, #5fbdc5);
+  .main-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    height: 100vh;
+  }
+
+  .main-wrapper {
+    max-width: $max-width;
     width: 100%;
   }
 
-  .portrait {
-    &__photo {
-      opacity: 0.8;
-      width: 200px;
-    }
-  }
-
-  .about-me {
-    color: white;
-    margin-left: 32px;
-    width: 256px;
-
-    &__name {
-      font-size: 32px;
-      letter-spacing: 1px;
-    }
-
-    &__nickname {
-      font-size: 20px;
-      margin-top: -4px;
-    }
-
-    &__job {
-      margin-top: 8px;
-    }
-  }
-
-  .link {
-    margin-top: 24px;
-
-    &__icon {
-      background-color: #eee;
-      border: solid 1px #eee;
-      border-radius: 50%;
-      margin-right: 8px;
-      width: 40px;
-    }
-  }
-
-  .biography {
+  .biography-container {
     margin-top: 96px;
-    padding: 0 16px;
+    padding: 0 24px;
   }
 
   .history {
@@ -264,10 +186,12 @@ p {
     }
   }
 
-  .portfolio {
-    margin: 96px 0;
+  .portfolio-container {
+    margin: 192px 0;
     padding: 0 16px;
+  }
 
+  .portfolio {
     &__card {
       margin-top: 120px;
     }

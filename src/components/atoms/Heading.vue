@@ -23,18 +23,11 @@ export default Vue.extend({
 @import '../../styles/common';
 
 .heading {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-
   &__text {
-    color: $theme-color;
-    border-bottom: solid 1px $theme-color;
-    font-size: 32px;
+    color: $text-color-normal;
+    font-size: 40px;
+    font-weight: 700;
     line-height: 64px;
-    letter-spacing: 6px;
-    text-align: center;
-    width: 280px;
   }
 }
 </style>

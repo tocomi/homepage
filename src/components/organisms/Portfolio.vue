@@ -2,6 +2,7 @@
   <div class="portfolio-wrapper">
     <div class="portfolio-card">
       <div class="portfolio-card__header">{{ artifact.name }}</div>
+      <separate-line />
       <div class="portfolio-card__content content">
         <img class="content__image" :src="artifact.image" />
         <div class="content__description">
@@ -64,6 +65,7 @@ import Vue, { PropType } from 'vue';
 
 import OpenInNew from 'vue-material-design-icons/OpenInNew.vue';
 
+import SeparateLine from '../atoms/SeparateLine.vue';
 import TechBadge from '../atoms/TechBadge.vue';
 
 import { Artifact } from '../../data/artifacts';
@@ -71,8 +73,9 @@ import { Artifact } from '../../data/artifacts';
 export default Vue.extend({
   name: 'PortfolioComponent',
   components: {
-    TechBadge,
     OpenInNew,
+    SeparateLine,
+    TechBadge,
   },
   props: {
     artifact: {
@@ -96,8 +99,7 @@ export default Vue.extend({
     &__header {
       color: $theme-color;
       font-size: 28px;
-      font-weight: 100;
-      height: 56px;
+      font-weight: 700;
     }
 
     &__content {
@@ -111,6 +113,7 @@ export default Vue.extend({
       align-items: center;
       display: flex;
       justify-content: flex-start;
+      margin-top: 16px;
 
       &__image {
         border: solid 1px #eee;
