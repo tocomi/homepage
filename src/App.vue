@@ -47,7 +47,6 @@ import Portfolio from './components/organisms/Portfolio.vue';
 import Heading from './components/atoms/Heading.vue';
 
 import { links } from './data/links';
-import { histories } from './data/histories';
 import { artifacts } from './data/artifacts';
 
 const scrollReveal = ScrollReveal();
@@ -88,7 +87,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      histories,
       links,
       artifacts,
     };
@@ -147,45 +145,6 @@ p {
     padding: 0 24px;
   }
 
-  .history {
-    margin: 0 auto;
-    padding: 64px 0;
-  }
-
-  .history-content {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: 80px auto;
-    max-width: $max-width;
-
-    &__icon {
-      align-items: center;
-      border: 0.2vw solid $theme-color;
-      border-radius: 50%;
-      color: $theme-color;
-      display: flex;
-      height: 80px;
-      justify-content: center;
-      width: 80px;
-    }
-  }
-
-  .detail {
-    margin-left: 56px;
-    width: 336px;
-
-    &__date {
-      color: $text-color-weak;
-    }
-
-    &__description {
-      color: $text-color-normal;
-      margin-top: 4px;
-    }
-  }
-
   .portfolio-container {
     margin: 192px 0;
     padding: 0 16px;
@@ -193,7 +152,7 @@ p {
 
   .portfolio {
     &__card {
-      margin-top: 120px;
+      margin-top: 196px;
     }
   }
 
@@ -216,16 +175,6 @@ p {
   .main {
     .about-me {
       margin: -32vh 0 0;
-    }
-
-    .history-content {
-      justify-content: center;
-    }
-
-    .detail {
-      margin: 16px 0 0;
-      text-align: center;
-      width: 392px;
     }
   }
 }

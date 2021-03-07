@@ -7,42 +7,34 @@
       <p class="summary__content">
         栃木 → 宮城 → 東京
       </p>
+      <br />
+      <p class="summary__content">
+        ハンドルネームのtocomiは、
+      </p>
+      <p class="summary__content">
+        名字を「とこみ」と読み間違えられたことに由来しています。
+      </p>
     </section>
     <section class="content">
       <p class="heading">経歴</p>
       <separate-line />
-      <div class="job">
-        <p class="job__term">
-          <calendar-icon
-            class="job__calendar-icon"
-            :size="20"
-            fillColor="#4da3b5"
-          />
-          2015.04 - 2019.09
-        </p>
-        <p class="job__content">
-          ERPパッケージベンダーに新卒入社。
-        </p>
-        <p class="job__content">
-          Javaエンジニアやチームリーダー、スクラムマスターを担当しました。
-        </p>
-      </div>
-      <div class="job">
-        <p class="job__term">
-          <calendar-icon
-            class="job__calendar-icon"
-            :size="20"
-            fillColor="#4da3b5"
-          />
-          2019.10 - 2021.01
-        </p>
-        <p class="job__content">
-          Web業界を志し、人材系企業の新規サービス部門に転職。
-        </p>
-        <p class="job__content">
-          Webエンジニア(Nuxt.js,Firebase)、スクラムマスターを担当しました。
-        </p>
-      </div>
+      <template v-for="history in jobHistories">
+        <div class="job" :key="history.term">
+          <p class="job__term">
+            <calendar-icon
+              class="job__calendar-icon"
+              :size="20"
+              fillColor="#4da3b5"
+            />
+            {{ history.term }}
+          </p>
+          <template v-for="description in history.descriptions">
+            <p class="job__content" :key="description">
+              {{ description }}
+            </p>
+          </template>
+        </div>
+      </template>
     </section>
     <section class="content">
       <p class="heading">興味領域</p>
@@ -90,12 +82,19 @@ import CalendarIcon from 'vue-material-design-icons/Calendar.vue';
 import StrengthFinder from '../molecules/StrengthFinder.vue';
 import SeparateLine from '../atoms/SeparateLine.vue';
 
+import { jobHistories } from '../../data/jobHistories';
+
 export default Vue.extend({
   name: 'Biography',
   components: {
     CalendarIcon,
     SeparateLine,
     StrengthFinder,
+  },
+  data() {
+    return {
+      jobHistories,
+    };
   },
 });
 </script>
@@ -106,7 +105,7 @@ export default Vue.extend({
 
 .biography {
   .content {
-    margin-top: 96px;
+    margin-top: 256px;
   }
 
   .heading {
@@ -117,6 +116,7 @@ export default Vue.extend({
 
   .summary {
     color: $text-color-normal;
+    margin-top: 96px;
 
     &__content {
       font-size: 18px;
@@ -125,10 +125,10 @@ export default Vue.extend({
   }
 
   .job {
-    margin-top: 64px;
+    margin-top: 96px;
 
     &__calendar-icon {
-      margin: 6px 2px 0 0;
+      margin: 8px 2px 0 0;
     }
     &__term {
       align-items: center;

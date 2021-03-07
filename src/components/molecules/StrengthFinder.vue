@@ -2,7 +2,7 @@
   <section class="strength-finder">
     <div class="strength">
       <p class="title">上位資質</p>
-      <ol class="list">
+      <ol class="list pros">
         <li>調和性</li>
         <li>学習欲</li>
         <li>回復志向</li>
@@ -12,7 +12,7 @@
     </div>
     <div class="weakness">
       <p class="title">下位資質</p>
-      <ol class="list">
+      <ol class="list cons">
         <li>コミュニケーション</li>
         <li>活発性</li>
         <li>戦略性</li>
@@ -41,9 +41,13 @@
 
   .list {
     color: $text-color-normal;
-    font-size: 14px;
+    font-size: 16px;
     padding-right: 16px;
-    width: 128px;
+    width: 144px;
+  }
+
+  .pros {
+    width: 72px;
   }
 }
 </style>
